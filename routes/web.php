@@ -20,17 +20,17 @@ Route::get('/', function () {
 
     // $books = Book::where("name", "اندیشه ورزان صبا تامین")->get();
 
-    ini_set('memory_limit', '400M');
+    ini_set('memory_limit', '200M');
 
     // dd("sdf");
-    $startDate = '1402-05-05T00:00:00.000+00:00';
+    $startDate = '1402-05-10T00:00:00.000+00:00';
     $endDate = '1402-05-13T00:00:00.000+00:00';
 
     $documents = Book::where('jdate', '>=', new MongoDB\BSON\UTCDateTime(strtotime($startDate) * 1000))
         ->where('jdate', '<', new MongoDB\BSON\UTCDateTime(strtotime($endDate) * 1000))
         ->get();
 
-    dd($documents);
+    dd("success");
 
     // return view('welcome');
 
@@ -51,4 +51,9 @@ Route::get('/', function () {
 
 
 
+});
+
+
+Route::get('/a', function () {
+    return "20";
 });
